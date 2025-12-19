@@ -4,6 +4,7 @@ import java.util.ArrayList;
 * This class contains methods to parse and display information about PNGs.
 */
 public class PNGParser {
+    // Instance Variables
     private boolean isValid;
 
     // Default Constructor
@@ -88,8 +89,11 @@ public class PNGParser {
                     case "IHDR":
                         parseIHDR(data);
                         break;
+                    case "IEND":
+                        System.out.printf(" > End of file.");
+                        break;
                     default:
-                        System.out.printf("(No data to display)");
+                        System.out.printf("(No additional information to display)");
                         break;
                 }
                 
@@ -212,6 +216,7 @@ public class PNGParser {
             filterMethod, filterMethodLabel,
             interlaceMethod, interlaceMethodLabel
         );
-
     }
+    
+    // Put helper method for parsing 'IDAT' chunks below
 }

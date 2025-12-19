@@ -92,13 +92,16 @@ public class PNGParser {
                         System.out.printf("(No data to display)");
                         break;
                 }
-                System.out.println();
+                
+                // line break to separate each chunk
+                System.out.println("\n");
             }
         } catch (Exception e) {
             System.out.println("An error has occured.");
         }
     }
     
+    // Helper method to parse the IHDR chunk 
     private void parseIHDR(ArrayList<String> dataField) {
         // Pieces of data outlined by the 'IDHR' chunk
         int width = Integer.decode("0x" + String.join("", dataField.subList(0, 4)));
@@ -200,7 +203,7 @@ public class PNGParser {
                 break;
         }
         
-        System.out.printf(" > Width: %d (px)%n > Height: %d (px)%n > Bit Depth: %d (bits per sample)%n > Color Type: %d (%s)%n > Compression Method: %d (%s)%n > Filter Method: %d (%s)%n > Interlace Method: %d (%s)%n", 
+        System.out.printf(" > Width: %d (px)%n > Height: %d (px)%n > Bit Depth: %d (bits per sample)%n > Color Type: %d (%s)%n > Compression Method: %d (%s)%n > Filter Method: %d (%s)%n > Interlace Method: %d (%s)", 
             width, 
             height, 
             bitDepth, 
